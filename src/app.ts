@@ -20,6 +20,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use(HomeRouter);
+app.use("/api", HomeRouter);
 
 export default app;
