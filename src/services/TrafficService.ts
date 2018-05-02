@@ -1,7 +1,17 @@
 import * as http from "http";
 import * as parser from "xml2json";
 
+/**
+ * @class TrafficService
+ * @description hits the Charlotte Mecklenburg Police Department/GIS server
+ * for up to the minute traffic data
+ */
+
 class TrafficService {
+  /**
+   * @type {String} currentIncidentsRequest
+   * @description basic soap envelope for public request to CMPD/GIS public api
+   */
   private currentIncidentsRequest: String;
   constructor() {
     this.currentIncidentsRequest = `<?xml version="1.0" encoding="utf-8"?>
@@ -11,6 +21,12 @@ class TrafficService {
         </soap12:Body>
       </soap12:Envelope>`;
   }
+  /**
+   * @type {Function}
+   * @param {String} xml soap envelope for xml request
+   * @description takes in soap envelope to set the length of request and other request options
+   * @returns {Object} an object with all the settings to make the XML call
+   */
   private httpOptions = (xml: String) => ({
     hostname: "maps.cmpd.org",
     port: 80,
@@ -21,6 +37,13 @@ class TrafficService {
       "Content-Length": xml.length
     }
   });
+  /**
+   * @function getCurrentIncidents
+   * @description exposes the getCurrentIncidents functinality
+   * of the traffic service
+   * @returns {Promise} a promise to await contianing the current traffic
+   * data for Charlotte-Mecklenburg
+   */
   public getCurrentIncidents = () => {
     return new Promise((resolve, reject) => {
       const req = http.request(this.httpOptions(this.currentIncidentsRequest), (res) => {

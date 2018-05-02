@@ -1,6 +1,10 @@
 import { Router, Request, Response, NextFunction } from "express";
 import { HomeController } from "../controllers/api";
 
+/**
+ * @class HomeRouter
+ * @description home router instance of express.Router() to manage scaling of routing for API
+ */
 export class HomeRouter {
   public router: Router;
   home: HomeController;

@@ -3,6 +3,10 @@
 import { Response, Request, NextFunction } from "express";
 import TrafficService from "../services/TrafficService";
 
+/**
+ * @class HomeController
+ * @description basic home controller to direct basic functionality of API
+ */
 export class HomeController {
   public apiHome = (req: Request, res: Response, next: Function) => {
     res.json({

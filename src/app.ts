@@ -8,7 +8,10 @@ dotenv.config();
 // routers
 import HomeRouter from "./routes/api";
 
-
+/**
+ * @class App
+ * @description instance of express() to setup API
+ */
 class App {
   public app: Application;
 
