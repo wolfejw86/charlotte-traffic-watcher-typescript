@@ -2,7 +2,7 @@ import { Router, Request, Response, NextFunction } from "express";
 import { HomeController } from "../controllers/api";
 
 export class HomeRouter {
-  router: Router;
+  public router: Router;
   home: HomeController;
   constructor() {
     this.router = Router();
@@ -10,8 +10,9 @@ export class HomeRouter {
     this.init();
   }
 
-  init() {
+  private init() {
     this.router.get("/",  this.home.apiHome);
+    this.router.get("/current", this.home.currentIncidents);
     return this;
   }
 

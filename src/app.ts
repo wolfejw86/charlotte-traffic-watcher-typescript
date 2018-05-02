@@ -18,7 +18,7 @@ class App {
     this.routes();
   }
 
-  private routes() {
+  private routes(): void {
     // routing
     this.app.use("/api", HomeRouter);
     const handleUnexpectedError = (err: Error, req: Request, res: Response, next: Function) => {
@@ -27,7 +27,7 @@ class App {
     this.app.use(handleUnexpectedError);
   }
 
-  private middleware() {
+  private middleware(): void {
     // express configuration
     this.app.set("port", process.env.PORT || 3000);
     this.app.use(compression());
