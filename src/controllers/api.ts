@@ -5,7 +5,17 @@ import TrafficService from "../services/TrafficService";
 
 export class HomeController {
   public apiHome = (req: Request, res: Response, next: Function) => {
-    res.json({ status: 200 });
+    res.json({
+      status: 200,
+      serviceName: "Charlotte Traffic Watcher",
+      routes: [{
+        path: "/api",
+        data: "Home Route that describes the API Services",
+      }, {
+        path: "/api/current",
+        data: "Gets the current Traffic Incident Data for Charlotte-Mecklenburg"
+      }]
+    });
   }
 
   public currentIncidents = async (req: Request, res: Response, next: Function) => {
