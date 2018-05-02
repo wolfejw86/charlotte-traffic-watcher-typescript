@@ -3,7 +3,7 @@ import compression from "compression";  // compresses requests
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import path from "path";
-
+import HomeRouter from "./routes/api";
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config();
 
@@ -20,7 +20,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get("/api", apiController.getApi);
-app.use(apiController.handleUnexpectedError);
+app.use(HomeRouter);
 
 export default app;
