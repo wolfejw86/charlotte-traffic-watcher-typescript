@@ -12,7 +12,7 @@ import HomeRouter from "./routes/api";
  * @class App
  * @description instance of express() to setup API
  */
-class App {
+export class App {
   public app: Application;
 
   constructor() {
