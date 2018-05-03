@@ -14,10 +14,9 @@ export class HomeRouter {
     this.init();
   }
 
-  private init() {
+  private init(): void {
     this.router.get("/",  this.home.apiHome);
     this.router.get("/current", this.home.currentIncidents);
-    return this;
   }
 
 }
