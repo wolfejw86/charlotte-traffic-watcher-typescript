@@ -7,7 +7,7 @@ import * as parser from "xml2json";
  * for up to the minute traffic data
  */
 
-class TrafficService {
+export class TrafficService {
   /**
    * @type {String} currentIncidentsRequest
    * @description basic soap envelope for public request to CMPD/GIS public api

@@ -16,6 +16,9 @@ describe("App tests", () => {
   it("should have a property to load middleware", () => {
     return expect(appTest["routes"]).toBeInstanceOf(Function);
   });
+  it("should have a constructor", () => {
+    return expect(App.prototype.constructor).toBeDefined();
+  });
   it("should use a constructor to return an instance", () => {
     return expect(appTest).toBeInstanceOf(App);
   });
