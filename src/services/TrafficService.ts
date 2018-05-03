@@ -27,7 +27,7 @@ export class TrafficService {
    * @description takes in soap envelope to set the length of request and other request options
    * @returns {Object} an object with all the settings to make the XML call
    */
-  private httpOptions = (xml: String) => ({
+  private httpOptions = (xml: String): Object => ({
     hostname: "maps.cmpd.org",
     port: 80,
     path: "/datafeeds/gisservice.asmx",
@@ -44,7 +44,7 @@ export class TrafficService {
    * @returns {Promise} a promise to await contianing the current traffic
    * data for Charlotte-Mecklenburg
    */
-  public getCurrentIncidents = () => {
+  public getCurrentIncidents = (): Promise<Object> => {
     return new Promise((resolve, reject) => {
       const req = http.request(this.httpOptions(this.currentIncidentsRequest), (res) => {
         console.log(`STATUS: ${res.statusCode}`);

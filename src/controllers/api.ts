@@ -8,7 +8,7 @@ import TrafficService from "../services/TrafficService";
  * @description basic home controller to direct basic functionality of API
  */
 export class HomeController {
-  public apiHome = (req: Request, res: Response, next: Function) => {
+  public apiHome = (req: Request, res: Response, next: Function): void => {
     res.json({
       status: 200,
       serviceName: "Charlotte Traffic Watcher",
@@ -22,7 +22,7 @@ export class HomeController {
     });
   }
 
-  public currentIncidents = async (req: Request, res: Response, next: Function) => {
+  public currentIncidents = async (req: Request, res: Response, next: Function): Promise<void> => {
     try {
       const currentIncidents = await TrafficService.getCurrentIncidents();
       res.status(200).json({ currentIncidents });
